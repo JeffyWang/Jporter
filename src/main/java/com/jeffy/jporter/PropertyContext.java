@@ -1,8 +1,5 @@
 package com.jeffy.jporter;
 
-import com.jeffy.jporter.Property;
-import com.jeffy.jporter.PropertyOperation;
-import com.jeffy.jporter.PropertyType;
 import net.sf.json.JSONObject;
 
 /**
@@ -26,9 +23,21 @@ public class PropertyContext {
     public Object operation(JSONObject json, String sourceJson) {
         if (operation.getOperationType().equals(PropertyType.OBJECT.getType()))
             return operation.getObjectProperties(json, sourceJson);
-        else if (operation.getOperationType().equals(PropertyType.ARRAY.getType()))
-            return operation.getArrayProperties(json, sourceJson);
-        else
-            return operation.getValue(json, sourceJson);
+        else if (operation.getOperationType().equals(PropertyType.OBJECT_ARRAY.getType()))
+            return operation.getObjectArrayProperties(json, sourceJson);
+        else if (operation.getOperationType().equals(PropertyType.STRING_ARRAY.getType()))
+            return operation.getStringArrayProperties(json, sourceJson);
+        else if (operation.getOperationType().equals(PropertyType.NUMBER_ARRAY.getType()))
+            return operation.getNumberArrayProperties(json, sourceJson);
+        else if (operation.getOperationType().equals(PropertyType.BOOLEAN_ARRAY.getType()))
+            return operation.getBooleanArrayProperties(json, sourceJson);
+        else if(operation.getOperationType().equals(PropertyType.STRING.getType()))
+            return operation.getString(json, sourceJson);
+        else if(operation.getOperationType().equals(PropertyType.NUMBER.getType()))
+            return operation.getNumber(json, sourceJson);
+        else if(operation.getOperationType().equals(PropertyType.BOOLEAN.getType()))
+            return operation.getBoolean(json, sourceJson);
+
+        return "type is error";
     }
 }

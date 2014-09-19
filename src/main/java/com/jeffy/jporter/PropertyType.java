@@ -4,7 +4,7 @@ package com.jeffy.jporter;
  * Created by Jeffy on 2014/9/18 0018.
  */
 public enum PropertyType {
-    OBJECT("object"), ARRAY("array"), STRING("string"), NUMBER("number"), BOOLEAN("boolean");
+    OBJECT("object"), OBJECT_ARRAY("object_array"), STRING_ARRAY("string_array"), NUMBER_ARRAY("number_array"), BOOLEAN_ARRAY("boolean_array"), STRING("string"), NUMBER("number"), BOOLEAN("boolean");
 
     private String type;
 
