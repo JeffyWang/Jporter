@@ -1,4 +1,5 @@
 **A JSON converter for get our own JSON format.**
+[![Build Status](https://travis-ci.org/JeffyWang/Jporter.svg)](https://travis-ci.org/JeffyWang/Jporter)
   Jport rely on [JSONPath](https://github.com/jayway/JsonPath) and [JSON Schema](http://json-schema.org/). It use the JSONPath to find the value from the source JSON, and put it in the result. In order to extend the description JSON, I let the description JSON looks like the JSON Schema
   
 ##Examples
@@ -189,5 +190,20 @@ The Jporter is in line with the type to analysis the source JSON, and there is t
 | `number`              |   The source JSON is number                              |
 | `boolean`             |   The source JSON is boolean                             |
 
+##Binaries
+Before use Jporter, we should add there dependencies into your pom.xml.
+```xml
+<dependency>
+    <groupId>com.jayway.jsonpath</groupId>
+    <artifactId>json-path</artifactId>
+    <version>0.9.1</version>
+</dependency>
+<dependency>
+    <groupId>net.sf.json-lib</groupId>
+    <artifactId>json-lib</artifactId>
+    <version>2.3</version>
+    <classifier>jdk15</classifier>
+</dependency>
+```
 
 > Written with [StackEdit](https://stackedit.io/).
