@@ -57,6 +57,11 @@ Given the source JSON
 }
 ```
 
+Call the method
+```java
+JSONObject json = JsonConvert.convert(sourceJson, resultJson);
+```
+
 ###Get object
 Get a JSON object from source JSON.
 
