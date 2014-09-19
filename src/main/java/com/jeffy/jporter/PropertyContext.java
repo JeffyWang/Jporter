@@ -21,23 +21,27 @@ public class PropertyContext {
     }
 
     public Object operation(JSONObject json, String sourceJson) {
-        if (operation.getOperationType().equals(PropertyType.OBJECT.getType()))
-            return operation.getObjectProperties(json, sourceJson);
-        else if (operation.getOperationType().equals(PropertyType.OBJECT_ARRAY.getType()))
-            return operation.getObjectArrayProperties(json, sourceJson);
-        else if (operation.getOperationType().equals(PropertyType.STRING_ARRAY.getType()))
-            return operation.getStringArrayProperties(json, sourceJson);
-        else if (operation.getOperationType().equals(PropertyType.NUMBER_ARRAY.getType()))
-            return operation.getNumberArrayProperties(json, sourceJson);
-        else if (operation.getOperationType().equals(PropertyType.BOOLEAN_ARRAY.getType()))
-            return operation.getBooleanArrayProperties(json, sourceJson);
-        else if(operation.getOperationType().equals(PropertyType.STRING.getType()))
-            return operation.getString(json, sourceJson);
-        else if(operation.getOperationType().equals(PropertyType.NUMBER.getType()))
-            return operation.getNumber(json, sourceJson);
-        else if(operation.getOperationType().equals(PropertyType.BOOLEAN.getType()))
-            return operation.getBoolean(json, sourceJson);
+        PropertyType propertyType = PropertyType.value(operation.getOperationType());
 
-        return "type is error";
+        switch (propertyType) {
+            case OBJECT:
+                return operation.getObjectProperties(json, sourceJson);
+            case OBJECT_ARRAY:
+                return operation.getObjectArrayProperties(json, sourceJson);
+            case STRING_ARRAY:
+                return operation.getStringArrayProperties(json, sourceJson);
+            case NUMBER_ARRAY:
+                return operation.getNumberArrayProperties(json, sourceJson);
+            case BOOLEAN_ARRAY:
+                return operation.getBooleanArrayProperties(json, sourceJson);
+            case STRING:
+                return operation.getString(json, sourceJson);
+            case NUMBER:
+                return operation.getNumber(json, sourceJson);
+            case BOOLEAN:
+                return operation.getBoolean(json, sourceJson);
+            default:
+                return "type is error";
+        }
     }
 }
