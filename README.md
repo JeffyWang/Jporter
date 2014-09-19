@@ -59,7 +59,7 @@ Given the source JSON
 
 Call the method
 ```java
-JSONObject json = JsonConvert.convert(sourceJson, resultJson);
+JSONObject json = JsonConvert.convert(sourceJson, descriptionJson);
 ```
 
 ###Get object
