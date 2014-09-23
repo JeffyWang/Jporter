@@ -23,6 +23,9 @@ public class PropertyContext {
     public Object operation(JSONObject json, String sourceJson) {
         PropertyType propertyType = PropertyType.value(operation.getOperationType());
 
+        if(json.get(Property.VALUE.getProperty()) != null)
+            return json.get(Property.VALUE.getProperty());
+
         switch (propertyType) {
             case OBJECT:
                 return operation.getObjectProperties(json, sourceJson);
